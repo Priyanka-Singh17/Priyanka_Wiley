@@ -1,0 +1,50 @@
+// USE CASE-1
+<Soap version 2.10, UTF 8/16/32>
+	<request> sending a  request
+		<sum of pairs>---- service
+			<x+y = y+z>
+		</sum of pairs>
+	</request>
+ 	<response>
+		<sum of pairs>
+			<x+y = y+z>
+			<Fault>
+				Service Unavailable
+			</Fault>
+		</sum of pairs>
+	</response>
+</Soap>
+
+
+
+// USE CASE-3
+---------------------------WSDL- case3----------------------------------
+
+Service is to count of the footballers whose names starts with 'A' and belongs to Itlay
+
+-----------------------------SOAP---------------------------------------
+<Soap version 2.10, UTF 8/16/32>
+    <SOAP: BODY>
+	<INPUT> List of the footballers of Itlay
+	<OUTPUT> Count the footballers whose name start with 'A'
+    <SOAP : OPERATION : COUNT>
+	<request> sending a  request
+		<Count of footballers>---- service
+	</request>
+ 	<response>
+		(name starts with 'A')
+		count  = count+1
+		<count>
+	</response>
+    <VALIDATION>
+	if(count>0)
+	    <TRUE>
+	<fault>
+	    <FALSE>
+		Error Message: No Footballers whose name starts with 'A' belongs to Itlay
+	</fault>
+    </VALIDATION>
+    </SOAP: OPERATION>
+    </SOAP: BODY> 
+</Soap>
+                               		
